@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="bday.png" />
+  <title>for jagi-ya</title>
+  <link rel="icon" href="https://i.ibb.co.com/hXZsYxZ/heart.png">
+  <style>
+    .fade-in {
+      opacity: 0;
+      transform: translateY(10px);
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #ffffff;
+      color: #1e3a8a;
+      font-family: 'Poppins', sans-serif;
+      overflow: auto;
+    }
+
+    .page {
+      min-height: 100vh;
+      width: 100%;
+      position: absolute;
+      justify-content: center;
+      top: 0;
+      left: 0;
+      display: none; /* default disembunyikan */
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      background-color: white;
+    }
+    .page.active {
+      display: flex;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .highlight {
+      color: #1e3a8a;
+      font-weight: bold;
+    }
+
+    .button {
+      background-color: #1e3a8a;
+      color: #fff;
+      border: none;
+      border-radius: 25px;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      margin-top: 30px;
+      transition: background 0.3s;
+    }
+
+    .button:hover {
+      background-color: #2c4ca5;
+    }
+
+    img {
+      max-width: 70vw;
+      max-height: 50vh;
+      margin-bottom: 20px;
+    }
+
+    .letter {
+      white-space: pre-line;
+      font-size: 1.1rem;
+      max-width: 600px;
+      text-align: left;
+      border-left: 3px solid #1e3a8a;
+      padding-left: 15px;
+      min-height: 200px;
+    }
+
+    .falling {
+      position: fixed;
+      top: -30px;
+      font-size: 24px;
+      animation: fall linear infinite;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    .blue-heart {
+      color: #ff4554;
+    }
+
+    .yellow-star {
+      color: #ffe26e;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(120vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      .button {
+        padding: 10px 20px;
+        font-size: 1rem;
+      }
+
+      .letter {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+    <div class="page active" id="intro">
+    <h1>jagi-ya .. is that you ?</h1>
+    <p>kalau iya, set volume kamu minimal 35% ya !</p>
+    <div>
+      <button class="button" onclick="startExperience()">iya !</button>
+      <button class="button" style="background-color: gray; margin-left: 10px;" onclick="alert('maaf! ini bukan buat kamu~')">bukan</button>
+    </div>
+  </div>
+
+  <div class="page" id="page1">
+    <img src="1.gif" alt="Cute Icon" id="imgPage1" />
+    <h1 id="titlePage1">Happy birthday <span class="highlight">uri-wiji ˶ᵔ ᵕ ᵔ˶ ♡</span></h1>
+    <p id="descPage1">eitss masih ada lagi nih , klik ya ✨</p>
+    <button class="button" id="btnPage1" onclick="goToPage(2)">tap ‹𝟹</button>
+  </div>
+
+  <div class="page" id="page2">
+    <img src="write.gif" alt="Envelope" />
+    <p>knock knock .. open me up, jagi-ya!</p>
+    <p>( ∩´͈ ᐜ `͈∩)</p>
+    <button class="button" onclick="goToPage(3)">open it ‹𝟹</button>
+  </div>
+
+<div class="page" id="page3" style="font-family: 'Dancing Script', cursive;">
+    <h2>My dearest, most precious, the love of my life, wiji lestari <𝟑 .ᐟ </h2>
+    <div class="letter" id="letterText"></div>
+</div>
+
+  <audio id="bg-music" src="love.mp3" autoplay loop muted></audio>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script>
+    const fullLetter = `selamat ulang tahun, wiji .ᐟ 💙
+
+udah hampir 4 tahun aja ya kita temenan, semenjak masa pkl waktu smk di lampung dulu. waktu cepet banget.
+
+walaupun kita berjauhan sekarang, kamu tetap jadi satu-satunya orang yang selalu aku inget dan paling aku rinduin.
+
+makasih yaaa udah bertahan sejauh ini, makasih udah tetap ada sampai sekarang. aku banggaaaaa banget sama kamu, lebih dari yang bisa aku bilang. aku nggak selalu pandai mengungkapkan, tapi percayalah, aku selalu sayang kamu .. dengan cara aku sendiri.
+
+aku bersyukur banget bisa kenal kamu. bukan cuma karena kamu selalu ada, tapi juga karena sama kamu aku ngerasa aman buat jadi diri sendiri — ngerasa .. ada yang ngerti aku. sama kamu .. aku selalu ngerasa didengar, tanpa dihakimi. dan itu nggak pernah aku temuin di siapapun, selain kamu.
+
+jujur aja, kamu tuh salah satu alasan paling besar kenapa aku bisa bertahan sampai sekarang. kalau ditanya tujuan hidupku ke depan .. ya kamu. tapi jangan takut ya, aku bilang ini bukan buat bikin kamu ngerasa terbebani, aku cuma pengin kamu tahu betapa berharganya kamu buatku, juga buat orang-orang di sekitarmu. dan semoga .. aku bisa jadi seseorang yang berarti juga buat kamu.
+
+aku juga selalu seneng tiap kita mabar minecraft .. ngebangun rumah di world survival kita, mati konyol dibunuh monster pas mining di goa, kejar-kejaran sama ikan dan axolotl, terus.. inget gak kita pernah mau ngebuat menara penjarah jadi rumah kita? itu kocak banget sih, penjarah nya spawn terus hahahah.
+
+wiji .. semoga hari ini (dan hari-hari seterusnya) selalu ngebawa kamu ke hal-hal yang tenang, hangat, dan tulus ya. kamu pantas dapet itu semua. aku nggak sabar banget ketemu kamu lagi .. antara agustus atau september nanti, semoga beneran kejadian. kita udah nunggu cukup lama, aku mau peluk kamu lagi, hehe.
+
+10 Juli 2025
+with all of my love,
+𝜗𝜚 felisa >⩊<`;
+
+    function startExperience() {
+      const intro = document.getElementById('intro');
+      const page1 = document.getElementById('page1');
+      const music = document.getElementById("bg-music");
+
+      intro.classList.remove('active');
+      page1.classList.add('active');
+
+      if (music.muted) {
+        music.muted = false;
+        music.play().catch(e => console.log("Autoplay blocked:", e));
+      }
+
+      animatePage1Elements(); // animasi elemen muncul pelan-pelan
+    }
+
+    function animatePage1Elements() {
+      const elements = [
+        document.getElementById("imgPage1"),
+        document.getElementById("titlePage1"),
+        document.getElementById("descPage1"),
+        document.getElementById("btnPage1")
+      ];
+
+      elements.forEach((el, index) => {
+        el.classList.remove("fade-in"); // reset if needed
+        el.style.animationDelay = `${index * 2.0}s`; // jeda animasi tiap elemen
+        el.classList.add("fade-in");
+      });
+    }
+
+    function goToPage(pageNum) {
+      if (pageNum !== 3) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+      const pages = document.querySelectorAll('.page');
+      pages.forEach(p => p.classList.remove('active'));
+      const next = document.getElementById(`page${pageNum}`);
+      next.classList.add('active');
+
+      // Play music sejak halaman pertama
+      const music = document.getElementById("bg-music");
+      if (music.muted) {
+        music.muted = false;
+        music.play().catch(e => console.log("Autoplay blocked:", e));
+      }
+
+      if (pageNum === 3) {
+        confetti({ particleCount: 150, spread: 100, origin: { y: 0.6 } });
+        typeText(fullLetter, document.getElementById('letterText'), 85);
+        startFallingSymbols();
+        setTimeout(() => {
+          document.getElementById('page3').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 500);
+      }
+    }
+
+    function typeText(text, element, speed) {
+      element.innerHTML = '';
+      let i = 0;
+      function type() {
+        if (i < text.length) {
+          element.innerHTML += text.charAt(i);
+          i++;
+          setTimeout(type, speed);
+        }
+      }
+      type();
+    }
+
+    function startFallingSymbols() {
+      setInterval(() => {
+        const el = document.createElement('div');
+        el.classList.add('falling');
+        const isHeart = Math.random() < 0.5;
+        el.innerText = isHeart ? '💙' : '⭐';
+        el.classList.add(isHeart ? 'blue-heart' : 'yellow-star');
+        el.style.left = Math.random() * 100 + 'vw';
+        el.style.animationDuration = (3 + Math.random() * 2) + 's';
+        document.body.appendChild(el);
+        setTimeout(() => el.remove(), 6000);
+      }, 300);
+    }
+  </script>
+</body>
+</html>
