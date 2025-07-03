@@ -144,25 +144,25 @@
 </head>
 <body>
     <div class="page active" id="intro">
-    <h1>jagi-ya .. is that you ?</h1>
-    <p>kalau iya, set volume kamu minimal 35% ya !</p>
+    <h1>malam jagi-ya , aku punya sesuatu buat kamu. mau liat?</h1>
+    <p>note: naikin volume kamu sedikit biar kedengeran ya ..</p>
     <div>
-      <button class="button" onclick="startExperience()">iya !</button>
-      <button class="button" style="background-color: gray; margin-left: 10px;" onclick="alert('maaf! ini bukan buat kamu~')">bukan</button>
+      <button class="button" onclick="startExperience()">mau</button>
+      <button class="button" style="background-color: gray; margin-left: 10px;" onclick="alert('kenapa? mau yaaa please~')">nggak mau</button>
     </div>
   </div>
 
   <div class="page" id="page1">
     <img src="1.gif" alt="Cute Icon" id="imgPage1" />
     <h1 id="titlePage1">Happy birthday <span class="highlight">uri-wiji ˶ᵔ ᵕ ᵔ˶ ♡</span></h1>
-    <p id="descPage1">eitss masih ada lagi nih , klik ya ✨</p>
+    <p id="descPage1">eitss masih ada lagi loh, klik di bawah ya ✨</p>
     <button class="button" id="btnPage1" onclick="goToPage(2)">tap ‹𝟹</button>
   </div>
 
   <div class="page" id="page2">
     <img src="write.gif" alt="Envelope" />
-    <p>knock knock .. open me up, jagi-ya!</p>
-    <p>( ∩´͈ ᐜ `͈∩)</p>
+    <p>knock knock .. ada surat buat kamu !</p>
+    <p>open me up, jagi-ya ! ( ∩´͈ ᐜ `͈∩)</p>
     <button class="button" onclick="goToPage(3)">open it ‹𝟹</button>
   </div>
 
@@ -221,7 +221,7 @@ with all of my love,
 
       elements.forEach((el, index) => {
         el.classList.remove("fade-in"); // reset if needed
-        el.style.animationDelay = `${index * 2.0}s`; // jeda animasi tiap elemen
+        el.style.animationDelay = `${index * 3.0}s`; // jeda animasi tiap elemen
         el.classList.add("fade-in");
       });
     }
@@ -244,7 +244,7 @@ with all of my love,
 
       if (pageNum === 3) {
         confetti({ particleCount: 150, spread: 100, origin: { y: 0.6 } });
-        typeText(fullLetter, document.getElementById('letterText'), 85);
+        typeText(fullLetter, document.getElementById('letterText'), 50);
         startFallingSymbols();
         setTimeout(() => {
           document.getElementById('page3').scrollIntoView({ behavior: 'smooth', block: 'start' });
